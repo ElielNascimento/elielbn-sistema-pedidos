@@ -2,8 +2,10 @@ package br.api.java.productapp.service;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,7 @@ public class ProdutoService implements Serializable {
 	}
 
 	public ProdutoDTO adicionar(ProdutoDTO dto) {
-		Produto produto = new Produto(null, dto.getNome(), dto.getPreco(), dto.getDescricao());
+		Produto produto = new Produto(dto.getId(), dto.getNome(), dto.getPreco(), dto.getDescricao());
 		produtoRepository.save(produto);
 		return new ProdutoDTO(produto);
 

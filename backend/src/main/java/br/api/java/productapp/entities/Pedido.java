@@ -41,7 +41,8 @@ public class Pedido implements Serializable {
 	private PedidoEnum status;
 
 	@ManyToMany
-	@JoinTable(name = "tbl_pedido_produto", joinColumns = @JoinColumn(name = "pedido_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
+	@JoinTable(name = "tbl_pedido_produto", joinColumns = @JoinColumn(name = "pedido_id"),
+	inverseJoinColumns = @JoinColumn(name = "produto_id"))
 	private List<Produto> listDeProdutos = new ArrayList<>();
 
 	public Pedido() {
